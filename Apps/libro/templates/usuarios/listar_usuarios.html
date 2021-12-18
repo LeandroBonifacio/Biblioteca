@@ -1,0 +1,72 @@
+{% extends 'index.html' %} 
+{% load static %}
+{% block title%} 
+
+Listado de usuarios 
+
+{% endblock title%} 
+
+{% block extra_css %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+{% endblock extra_css %}
+
+{% block body %} 
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-8">
+                <strong class="card-title">
+                    Listado de Usuarios
+                </strong> 
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary" onclick="abrir_modal_creacion('{% url 'usuarios:registrar_usuarios' %}')" >Registrar usuario</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="myTable">
+    <thead>
+        <th>
+            #
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Nombres
+        </th>
+        <th>
+            Apellidos
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Opciones
+        </th>
+
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+<div class="modal fade" id="creacion" role="dialog">
+
+</div>
+<div class="modal fade" id="edicion" role="dialog">
+
+</div>
+<div class="modal fade" id="eliminacion" role="dialog">
+
+</div>
+{% endblock body %}
+
+{% block extrajs %}
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'js/lib/data-table/dataTables.min.js' %}"></script>
+    <script src="{% static 'js/usuarios/index.js' %}"></script>
+{% endblock extrajs %}

@@ -1,0 +1,25 @@
+<div class="modal-dialog modal-lg" role="document">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-tittle">Ediccion usuarios {{ object }}</h2>
+            <button class="close" type="button" aria-label="close" onclick="cerrar_modal_edicion()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion" action="{% url 'usuarios:actualizar_usuarios' object.pk %}" method="POST">
+            {% csrf_token %} 
+            <div class="modal-body">
+                <div id="errores-edicion">
+
+                </div>
+                {{form.as_p}}
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" onclick="cerrar_modal_edicion()" >Cancelar</button>
+                <button id="boton_creacion" class="btn btn-primary" type="button" onclick="editar();" >Confirmar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
